@@ -14,7 +14,11 @@ const generateCardNode = (data) => {
     jobTitle,
     companyName,
     post,
+    publishDate,
+    city,
+    state
   } = data;
+  console.log(data)
   const templateId = "profile-post-item-template";
   const resultCardTemplate = document.getElementById(templateId);
   const clone = document.importNode(resultCardTemplate.content, true);
@@ -22,10 +26,14 @@ const generateCardNode = (data) => {
   const jobDesc = clone.querySelector(".post-author-info .page-micro");
   const postNode = clone.querySelector(".post-content");
   const avatarNode = clone.querySelector(".post-author-avatar");
+  const publishDateNode = clone.querySelector(".post-author-publish .publish-date");
+  const cityStateNode = clone.querySelector(".post-author-publish .city-state")
 
   authorName.innerHTML = `${authorFirstName} ${authorLastName}`;
   jobDesc.innerHTML = `${jobTitle} @ ${companyName}`;
   postNode.innerHTML = post;
+  publishDateNode.innerHTML = publishDate;
+  cityStateNode.innerHTML = `${city}, ${state}`
 
   if (authorAvatarSrc) {
     const avatarImg = document.createElement("img");
