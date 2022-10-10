@@ -15,12 +15,11 @@ const generateListItemNode = (data) => {
   const titleNode = clone.querySelector("p.page-micro");
   const avatarNode = clone.querySelector(".profile-list-item-avatar");
   const topFriendNode = clone.querySelector("p.top-friend-flag.page-xs");
-  console.log(topFriendNode)
   nameNode.innerHTML = `${name}`;
   titleNode.innerHTML = `${jobTitle} @ ${companyName}`;
   avatarNode.src = avatarSrc;
   avatarNode.setAttribute("aria-label", `${name}`);
-  
+
   if (topFriend){
     topFriendNode.style.display = "block"
   }
@@ -30,6 +29,10 @@ const generateListItemNode = (data) => {
     avatarImg.src = avatarSrc;
     avatarImg.setAttribute("aria-label", `${name}`);
     avatarNode.appendChild(avatarImg);
+  }else{
+    const initials = document.createElement("h2");
+    initials.innerHTML = name.split(" ").map((n)=>n[0]).join("");
+    avatarNode.appendChild(initials);
   }
 
   return clone;

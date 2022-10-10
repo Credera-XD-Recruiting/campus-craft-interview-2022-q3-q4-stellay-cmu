@@ -43,11 +43,20 @@
   height: 90px;
   width: 90px;
   min-width: 90px;
+  position: relative;
+  text-align: center;
+  color: white;
 }
 
 .profile-list-item-avatar img {
   height: 100%;
   width: 100%;
+}
+.profile-list-item-avatar h2{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .profile-list-item-info {
