@@ -45,8 +45,6 @@ const generateCardNode = (data) => {
 
   if (favorite){
     favoriteNode.setAttribute("src", favoriteSrc);
-    // const favoriteIcon = document.createElement("img");
-    // favorite
   }
 
 
