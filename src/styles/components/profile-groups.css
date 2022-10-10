@@ -57,11 +57,17 @@
   padding-bottom: 16px;
 }
 
-.profile-group-avatar img {
+.profile-group-avatar .background-img {
   height: 100%;
   width: 100%;
   object-fit: cover;
   background-color: var(--grayscale_2);
+}
+
+.profile-group-avatar .favorite-icon{
+  position: absolute;
+  top: 8px;
+  right: 16px;
 }
 
 /* SKELETON LOADING  */

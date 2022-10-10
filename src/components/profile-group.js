@@ -1,4 +1,5 @@
 import { removeChildNodes } from "../utils";
+import favoriteSrc from "../assets/favorite.svg";
 
 const activityStates = {
   active: "active",
@@ -13,7 +14,8 @@ const activityStates = {
  * @return {Node} generated markup for a card
  */
 const generateCardNode = (data) => {
-  const { name, href, image, activity } = data;
+  console.log(data)
+  const { name, href, image, activity, favorite } = data;
   const templateId = "profile-group-results-item-template";
   const resultCardTemplate = document.getElementById(templateId);
   const clone = document.importNode(resultCardTemplate.content, true);
@@ -22,7 +24,8 @@ const generateCardNode = (data) => {
   const groupImageNode = clone.querySelector(
     "a.profile-group-results-card img"
   );
-  console.log(activity)
+  const favoriteNode = clone.querySelector("a.profile-group-results-card .favorite-icon")
+
   titleNode.innerHTML = `${name}`;
   referenceNode.href = href;
   groupImageNode.src = image;
@@ -38,6 +41,12 @@ const generateCardNode = (data) => {
   }
   if (activity === activityStates.low){
     referenceNode.style.backgroundColor ="#C152A2" ;
+  }
+
+  if (favorite){
+    favoriteNode.setAttribute("src", favoriteSrc);
+    // const favoriteIcon = document.createElement("img");
+    // favorite
   }
 
 
